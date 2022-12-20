@@ -3,10 +3,10 @@ package org.lista;
 import java.util.List;
 
 public class TarefaAdicionarElemento implements Runnable {
-    private List<String> lista;
+    private Lista lista;
     private int numeroThread;
 
-    public TarefaAdicionarElemento(List lista, int numeroThread) {
+    public TarefaAdicionarElemento(Lista lista, int numeroThread) {
         this.lista = lista;
         this.numeroThread = numeroThread;
     }
@@ -14,7 +14,7 @@ public class TarefaAdicionarElemento implements Runnable {
     @Override
     public void run() {
         for(int i = 0; i < 100; i ++){
-            lista.add("posicao: "+ lista.size() + " Thread Atual: " + this.numeroThread + " - " + i);
+            lista.adicionarElemento("posicao: "+ Thread.currentThread().getName() + " Thread Atual: " + this.numeroThread + " - " + i);
         }
 
 

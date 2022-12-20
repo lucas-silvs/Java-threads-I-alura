@@ -6,11 +6,16 @@ public class Lista {
     private int indice = 0;
 
 
-    public void adicionarElemento(String elemento){
-        synchronized (this) {
+    public synchronized void adicionarElemento(String elemento){
+
             this.elementos[indice] = elemento;
             this.indice++;
-        }
+
+            if(estaCheia()){
+                System.out.println("Notificando lista cheia");
+                this.notify();
+            }
+
     }
 
     public int tamanho(){
@@ -19,5 +24,9 @@ public class Lista {
 
     public String pegarElemento(int posicao){
         return this.elementos[posicao];
+    }
+
+    public boolean estaCheia() {
+        return this.indice == elementos.length;
     }
 }

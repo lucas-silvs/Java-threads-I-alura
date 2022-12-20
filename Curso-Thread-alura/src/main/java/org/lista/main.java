@@ -9,15 +9,16 @@ public class main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        List<String> lista = new Vector<>();
+        Lista lista = new Lista();
 
         for (int i = 0; i < 10; i++){
             new Thread(new TarefaAdicionarElemento(lista, i)).start();
         }
+
+        new Thread(new TarefaImprimir(lista)).start();
+
+
         Thread.sleep(2000);
 
-        for (int i = 0; i < lista.size(); i++){
-            System.out.println(lista.get(i));
-        }
     }
 }
