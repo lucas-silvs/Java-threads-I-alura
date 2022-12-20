@@ -11,5 +11,6 @@ public class TarefaNumero01 implements Runnable {
     @Override
     public void run() {
         banheiro.fazNumero01();
+
     }
 }
